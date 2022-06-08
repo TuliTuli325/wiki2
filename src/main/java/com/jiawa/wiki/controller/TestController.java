@@ -1,5 +1,6 @@
 package com.jiawa.wiki.controller;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 public class TestController {
+    @Value("${test.hello:TEST}")
+    private String testHello;
     //requestmapping可以支持下面所有的request,通过这样的注解方式写出rest ful的http请求
     //如果只仅限于get请求，那么方法应该为@GetMapping, @PostMapping, etc. 或者用@RequestMapping(value = "/user/1", method = RequestMethod.GET)
     /*
@@ -18,7 +21,7 @@ public class TestController {
      */
     @RequestMapping("/hello")
     public String Hello(){
-        return "Helloworld";
+        return "Helloworld" + testHello;
     }
 
     @PostMapping("/hello/post")
