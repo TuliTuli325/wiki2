@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 public class TestController {
-    @Value("${test.hello:TEST}")
+    @Value("${test.hello}")
     private String testHello;
     //requestmapping可以支持下面所有的request,通过这样的注解方式写出rest ful的http请求
     //如果只仅限于get请求，那么方法应该为@GetMapping, @PostMapping, etc. 或者用@RequestMapping(value = "/user/1", method = RequestMethod.GET)
